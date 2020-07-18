@@ -1,0 +1,79 @@
+#Brad Burkett
+
+#SWDV 630 2W 20/SU2 - Week 3 - Inheritance
+
+#Date 07/18/2020
+
+class Pizza:
+    
+    def __init__(self, type, price):
+        self.type = type
+        self.price = price
+    
+    def gettype(self):
+        return self.type
+    
+    def getprice(self):
+        return self.price
+      
+class MeatLovers(Pizza):
+    
+    def __init__(self, type, price, topping1 = "Pepporoni", topping2 = "Ham", topping3 = "Italian Sausage", topping4 = "Salami"): 
+        Pizza.__init__(self, type, price)
+        self.topping1 = topping1
+        self.topping2 = topping2
+        self.topping3 = topping3
+        self.topping4 = topping4
+        
+    def gettopping1(self):
+        return self.topping1
+    
+    def gettopping2(self):
+        return self.topping2
+    
+    def gettopping3(self):
+        return self.topping3
+    
+    def gettopping4(self):
+        return self.topping4
+    
+class Cheese(Pizza):
+        
+    def __init__(self, type, price, topping1 = "Mozzarella", topping2 = "Chedder", topping3 = "Monterey Jack"):
+        Pizza.__init__(self, type, price)
+        self.topping1 = topping1
+        self.topping2 = topping2
+        self.topping3 = topping3
+        
+    def gettopping1(self):
+        return self.topping1
+    
+    def gettopping2(self):
+        return self.topping2
+    
+    def gettopping3(self):
+        return self.topping3
+        
+def main():#Show results
+    
+    #Base Class
+    b = Pizza("Pizza", "Price")
+    print(b.gettype(), "Types and", b.getprice())
+    print()
+    
+    #Subclass MeatLovers
+    s = MeatLovers("MeatLovers", "$9.99")
+    print(s.gettype() + " Pizza")
+    print("Price: " + s.getprice())
+    print("Includes:")
+    print(s.gettopping1(), s.gettopping2(), s.gettopping3(), s.gettopping4(), sep="\n")
+    print()
+    
+    #Subclass Cheese
+    s = Cheese("Cheese", "$7.99")
+    print(s.gettype() + " Pizza")
+    print("Price: " + s.getprice())
+    print("Includes:")
+    print(s.gettopping1(), s.gettopping2(), s.gettopping3(), sep="\n")
+
+main()
